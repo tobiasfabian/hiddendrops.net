@@ -1,0 +1,23 @@
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^ https://hiddendrops.net/ [R,L]
+
+RewriteRule ^api/(.*) http://localhost:21887/$1 [P]
+
+RewriteRule ^couchdb/(.*) http://localhost:21886/$1 [P]
+
+
+
+ExpiresActive On
+ExpiresByType image/png A604800
+ExpiresByType image/jpg A604800
+ExpiresByType image/x-icon A604800
+ExpiresByType application/javascript A604800
+ExpiresByType text/css A604800
+
+
+
+# add appcache mimetype
+
+AddType text/cache-manifest .manifest
